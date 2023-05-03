@@ -1,6 +1,12 @@
 $(function () {
-  var today = dayjs()
-    console.log(today.format('YYYY-MM-DD'))
+  var getDate = dayjs()
+  
+  var currentDay = getDate.format('dddd, MMMM D')
+
+  var currentHour = getDate.format('H')
+  console.log(currentHour)
+
+  $("#currentDay").text(currentDay)
   
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
