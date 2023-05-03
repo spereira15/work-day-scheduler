@@ -1,12 +1,29 @@
 $(function () {
   var getDate = dayjs()
-  
-  var currentDay = getDate.format('dddd, MMMM D')
-
   var currentHour = getDate.format('H')
+
+  $("#currentDay").text(getDate.format('dddd, MMMM D'))
+
   console.log(currentHour)
 
-  $("#currentDay").text(currentDay)
+  for (let i = 9; i <= 17; i++) {
+    var hourBlockDiv = $("#"+i);
+
+    console.log(hourBlockDiv)
+    if (i < currentHour) {
+      hourBlockDiv.addClass('past')
+      hourBlockDiv.removeClass('present')
+      hourBlockDiv.removeClass('present')
+    } else if (i === currentHour) {
+      hourBlockDiv.removeClass('past')
+      hourBlockDiv.addClass('present')
+      hourBlockDiv.removeClass('future')
+    } else {
+      hourBlockDiv.removeClass('past')
+      hourBlockDiv.removeClass('present')
+      hourBlockDiv.addClass('future')
+    }
+  } 
   
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
